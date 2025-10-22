@@ -3,16 +3,22 @@ import Layout from '../../components/UI/Layout/Layout';
 import Button from '../../components/UI/Button/Button';
 import styles from './ResultsPage.module.scss';
 
-const ResultsPage = () => {
+const ResultsPage = ({ winner, onRestart }) => {
 
-    const winner = 'X';
+    const resultMessage = winner === 'Draw'
+        ? 'Гра завершилась внічию!'
+        : `Переможець: ${winner}!`;
 
     return (
         <Layout>
             <div className={styles.resultsPage}>
                 <h2>Гра завершена!</h2>
-                <p className={styles.winner}>Переможець: {winner}</p>
-                <Button>Грати знову</Button>
+
+                <p className={styles.winner}>{resultMessage}</p>
+
+                <Button onClick={onRestart}>
+                    Грати знову
+                </Button>
             </div>
         </Layout>
     );
