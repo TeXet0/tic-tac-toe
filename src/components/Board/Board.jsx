@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
-import Square from '../Square/Square';
+import React from 'react';
+import Square from '../Square/Square.jsx';
 import styles from './Board.module.scss';
 
-const Board = () => {
-    const [squares, setSquares] = useState(Array(9).fill(null));
-
+const Board = ({ squares, onSquareClick }) => {
     return (
         <div className={styles.board}>
-            {squares.map((_, i) => (
-                <Square key={i} value={squares[i]} />
+            {squares.map((value, i) => (
+                <Square
+                    key={i}
+                    value={value}
+                    onClick={() => onSquareClick(i)}
+                />
             ))}
         </div>
     );
