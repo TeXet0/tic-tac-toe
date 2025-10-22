@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from '../../components/UI/Layout/Layout';
-import Button from '../../components/UI/Button/Button';
+import Layout from '../../components/UI/Layout/Layout.jsx';
+import Button from '../../components/UI/Button/Button.jsx';
 import styles from './ResultsPage.module.scss';
 
 const ResultsPage = ({ winner, onRestart }) => {

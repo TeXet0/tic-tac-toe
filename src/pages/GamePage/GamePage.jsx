@@ -1,9 +1,9 @@
 import React from 'react';
-import Layout from '../../components/UI/Layout/Layout';
-import Board from '../../components/Board/Board';
-import Button from '../../components/UI/Button/Button';
+import Layout from '../../components/UI/Layout/Layout.jsx';
+import Board from '../../components/Board/Board.jsx';
+import Button from '../../components/UI/Button/Button.jsx';
 import styles from './GamePage.module.scss';
-import { useTicTacToe } from '../../hooks/useTicTacToe';
+import { useTicTacToe } from '../../hooks/useTicTacToe.js';
 
 const GamePage = ({ onGameEnd }) => {
     const {

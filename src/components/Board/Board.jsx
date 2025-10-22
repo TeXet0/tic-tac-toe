@@ -1,5 +1,5 @@
 import React from 'react';
-import Square from '../Square/Square';
+import Square from '../Square/Square.jsx';
 import styles from './Board.module.scss';
 
 const Board = ({ squares, onSquareClick }) => {

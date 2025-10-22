@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
-import StartPage from './pages/StartPage/StartPage';
-import GamePage from './pages/GamePage/GamePage';
-import ResultsPage from './pages/ResultsPage/ResultsPage';
+import StartPage from './pages/StartPage/StartPage.jsx';
+import GamePage from './pages/GamePage/GamePage.jsx';
+import ResultsPage from './pages/ResultsPage/ResultsPage.jsx';
 import './assets/styles/main.scss';
 
 function App() {
