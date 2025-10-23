@@ -1,36 +1,29 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import StartPage from './pages/StartPage/StartPage.jsx';
 import GamePage from './pages/GamePage/GamePage.jsx';
-import ResultsPage from './pages/ResultsPage/ResultsPage.jsx';
+import SettingsPage from './pages/SettingsPage/SettingsPage.jsx';
 import './assets/styles/main.scss';
 
 function App() {
     const [currentPage, setCurrentPage] = useState('start');
-    const [gameResult, setGameResult] = useState(null);
 
-    const handleStartGame = () => {
-        setGameResult(null);
-        setCurrentPage('game');
-    };
+    const handleStartGame = () => setCurrentPage('game');
+    const handleGoToSettings = () => setCurrentPage('settings');
+    const handleGoHome = () => setCurrentPage('start');
 
-    const handleEndGame = useCallback((result) => {
-        setGameResult(result); // 'X', 'O' або 'Draw'
-        setCurrentPage('results');
-    }, []);
-
-    const handleRestart = () => {
-        setCurrentPage('start');
-    };
 
     const renderPage = () => {
         switch (currentPage) {
             case 'game':
-                return <GamePage onGameEnd={handleEndGame} />;
-            case 'results':
-                return <ResultsPage winner={gameResult} onRestart={handleRestart} />;
+                return <GamePage onGoHome={handleGoHome} />;
+            case 'settings':
+                return <SettingsPage onBack={handleGoHome} />;
             case 'start':
             default:
-                return <StartPage onStartGame={handleStartGame} />;
+                return <StartPage
+                    onStartGame={handleStartGame}
+                    onGoToSettings={handleGoToSettings}
+                />;
         }
     };
 
