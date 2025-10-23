@@ -1,7 +1,5 @@
 import React, { createContext, useState, useMemo, useEffect } from 'react';
 
-export const SettingsContext = createContext(null);
-
 const getInitialSettings = () => {
     const savedSettings = localStorage.getItem('gameSettings');
     if (savedSettings) {
@@ -13,6 +11,7 @@ const getInitialSettings = () => {
     };
 };
 
+export const SettingsContext = createContext(null);
 export const SettingsProvider = ({ children }) => {
     const [settings, setSettings] = useState(getInitialSettings);
 
