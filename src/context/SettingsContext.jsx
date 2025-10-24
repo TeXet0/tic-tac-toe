@@ -6,12 +6,13 @@ const getInitialSettings = () => {
         return JSON.parse(savedSettings);
     }
     return {
-        playerX: 'Гравець X',
-        playerO: 'Гравець O',
+        playerX: { name: 'Гравець X', color: '#6366f1' },
+        playerO: { name: 'Гравець O', color: '#ec4899' }
     };
 };
 
 export const SettingsContext = createContext(null);
+
 export const SettingsProvider = ({ children }) => {
     const [settings, setSettings] = useState(getInitialSettings);
 

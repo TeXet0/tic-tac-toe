@@ -1,33 +1,35 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/UI/Layout/Layout';
 import Board from '../../components/Board/Board';
 import Button from '../../components/UI/Button/Button';
-import styles from './GamePage.module.scss';
-import { useTicTacToe } from '../../hooks/useTicTacToe';
-import { SettingsContext } from '../../context/SettingsContext.jsx';
 import GameEndModal from '../../components/GameEndModal/GameEndModal';
+import styles from './GamePage.module.scss';
+import { useTicTacToe } from '../../hooks/useTicTacToe.js';
+import { SettingsContext } from '../../context/SettingsContext.jsx';
 
-const GamePage = ({ onGoHome }) => {
+const GamePage = () => {
     const { settings } = useContext(SettingsContext);
+    const { board, winner, currentPlayer, handleClick, handleRestart } = useTicTacToe();
 
-    const {
-        board,
-        winner,
-        currentPlayer,
-        handleClick,
-        handleRestart
-    } = useTicTacToe();
+    const navigate = useNavigate();
+
+    const navigateHome = () => {
+        navigate('/');
+    };
 
     const getWinnerName = () => {
         if (winner === 'Draw') return 'Draw';
-        if (winner === 'X') return settings.playerX;
-        if (winner === 'O') return settings.playerO;
+        if (winner === 'X') return settings.playerX.name;
+        if (winner === 'O') return settings.playerO.name;
         return null;
     };
 
     const winnerName = getWinnerName();
 
-    const currentPlayerName = currentPlayer === 'X' ? settings.playerX : settings.playerO;
+    const currentPlayerName = currentPlayer === 'X'
+        ? settings.playerX.name
+        : settings.playerO.name;
 
     const status = winnerName
         ? `Гра завершена!`
@@ -47,7 +49,7 @@ const GamePage = ({ onGoHome }) => {
                 <GameEndModal
                     winnerName={winnerName}
                     onPlayAgain={handleRestart}
-                    onGoHome={onGoHome}
+                    onGoHome={navigateHome}
                 />
             )}
         </Layout>
