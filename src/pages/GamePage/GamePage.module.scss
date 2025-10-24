@@ -1,0 +1,15 @@
+.gamePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.status {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.restartButton {
+  margin-top: 16px;
+}

@@ -4,6 +4,15 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #f3f0f5;
+  padding: 16px;
   text-align: center;
+}
+
+.header {
+  margin-bottom: 32px;
+
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+  }
 }
