@@ -1,0 +1,65 @@
+.startPage {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .buttonGroup {
+    flex-direction: row;
+  }
+}
+
+.profileLinks {
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+  color: #4b5563;
+
+  .profileLink {
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, text-decoration 0.2s;
+    display: inline-block;
+
+    &:hover {
+      transform: scale(1.05);
+      text-decoration: underline;
+    }
+  }
+
+  span {
+    margin: 0 8px;
+    color: #9ca3af;
+  }
+}
+
+.resultsLink {
+  margin-top: 24px;
+
+  a {
+    font-size: 1.1rem;
+    color: #4b5563;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #6366f1;
+      text-decoration: underline;
+    }
+  }
+}
