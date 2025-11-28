@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styles from './Square.module.scss';
-import { SettingsContext } from '../../context/SettingsContext.jsx';
+import { useGameStore } from '../../store/gameStore.js';
 
 const Square = ({ value, onClick }) => {
-    const { settings } = useContext(SettingsContext);
-
+    const settings = useGameStore((state) => state.settings);
     const color = value === 'X'
         ? settings.playerX.color
         : value === 'O'

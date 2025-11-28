@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { useForm } from 'react-hook-form';
-import { SettingsContext } from '../../context/SettingsContext.jsx';
+import { useGameStore } from '../../store/gameStore.js';
 import Button from '../UI/Button/Button';
 import styles from './SettingsModal.module.scss';
 
 const modalRoot = document.getElementById('modal-root');
 
 const SettingsModal = ({ onClose }) => {
-    const { settings, updateSettings } = useContext(SettingsContext);
+    const { settings, updateSettings } = useGameStore();
 
     const { register, handleSubmit } = useForm({
         defaultValues: settings

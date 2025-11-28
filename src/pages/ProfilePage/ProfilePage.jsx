@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react'; // 1. 'useContext' більше не потрібен
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
-import { SettingsContext } from '../../context/SettingsContext.jsx';
+import { useGameStore } from '../../store/gameStore.js';
 import Layout from '../../components/UI/Layout/Layout';
 import Button from '../../components/UI/Button/Button';
 import styles from './ProfilePage.module.scss';
 
 const ProfilePage = () => {
-    const { settings } = useContext(SettingsContext);
+    const settings = useGameStore((state) => state.settings);
     const { playerId } = useParams();
     const navigate = useNavigate();
 
