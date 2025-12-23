@@ -31,7 +31,13 @@ const SettingsPage = ({ onBack }) => {
                         <label htmlFor="playerX">Ім'я гравця X</label>
                         <input
                             id="playerX"
-                            {...register("playerX", { required: "Ім'я не може бути порожнім" })}
+                            {...register("playerX", {
+                                required: "Ім'я не може бути порожнім",
+                                validate: {
+                                    notOnlySpaces: (value) => (value || "").trim().length > 0 || "Ім'я не може складатися тільки з пробілів",
+                                    validCharacters: (value) => /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ0-9\s]+$/.test(value) || "Ім'я може містити тільки літери, цифри та пробіли"
+                                }
+                            })}
                         />
                         {errors.playerX && <p className={styles.error}>{errors.playerX.message}</p>}
                     </div>
@@ -40,7 +46,13 @@ const SettingsPage = ({ onBack }) => {
                         <label htmlFor="playerO">Ім'я гравця O</label>
                         <input
                             id="playerO"
-                            {...register("playerO", { required: "Ім'я не може бути порожнім" })}
+                            {...register("playerO", {
+                                required: "Ім'я не може бути порожнім",
+                                validate: {
+                                    notOnlySpaces: (value) => (value || "").trim().length > 0 || "Ім'я не може складатися тільки з пробілів",
+                                    validCharacters: (value) => /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ0-9\s]+$/.test(value) || "Ім'я може містити тільки літери, цифри та пробіли"
+                                }
+                            })}
                         />
                         {errors.playerO && <p className={styles.error}>{errors.playerO.message}</p>}
                     </div>
