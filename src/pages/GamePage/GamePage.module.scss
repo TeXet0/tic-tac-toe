@@ -1,0 +1,22 @@
+.gamePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px); /* Висота екрану мінус хедер */
+  padding: 2rem;
+}
+
+.status {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #374151; /* Темно-сірий */
+  text-align: center;
+}
+
+.restartButton {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
