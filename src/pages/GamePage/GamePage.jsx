@@ -18,16 +18,22 @@ const GamePage = ({ onGoHome }) => {
         handleRestart
     } = useTicTacToe();
 
-    const getWinnerName = () => {
+    const getName = (player) => {
+        return player?.name || player;
+    };
+
+    const getWinnerResult = () => {
         if (winner === 'Draw') return 'Draw';
-        if (winner === 'X') return settings.playerX;
-        if (winner === 'O') return settings.playerO;
+        if (winner === 'X') return getName(settings.playerX);
+        if (winner === 'O') return getName(settings.playerO);
         return null;
     };
 
-    const winnerName = getWinnerName();
+    const winnerName = getWinnerResult();
 
-    const currentPlayerName = currentPlayer === 'X' ? settings.playerX : settings.playerO;
+    const currentPlayerName = currentPlayer === 'X'
+        ? getName(settings.playerX)
+        : getName(settings.playerO);
 
     const status = winnerName
         ? `Гра завершена!`
@@ -43,13 +49,12 @@ const GamePage = ({ onGoHome }) => {
                 </div>
             </div>
 
-            {winnerName && (
-                <GameEndModal
-                    winnerName={winnerName}
-                    onPlayAgain={handleRestart}
-                    onGoHome={onGoHome}
-                />
-            )}
+            <GameEndModal
+                isOpen={!!winnerName}
+                winnerName={winnerName}
+                onPlayAgain={handleRestart}
+                onGoHome={onGoHome}
+            />
         </Layout>
     );
 };

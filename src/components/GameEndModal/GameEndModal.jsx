@@ -1,29 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import Modal from '../Modal/Modal';
 import Button from '../UI/Button/Button';
 import styles from './GameEndModal.module.scss';
 
-const modalRoot = document.getElementById('modal-root');
-
-const GameEndModal = ({ winnerName, onPlayAgain, onGoHome }) => {
+const GameEndModal = ({ isOpen, winnerName, onPlayAgain, onGoHome }) => {
     const message = winnerName === 'Draw'
-        ? 'Гра завершилась внічию!'
+        ? 'Нічия'
         : `Переможець: ${winnerName}!`;
 
-    const modalContent = (
-        <div className={styles.overlay}>
-            <div className={styles.modal}>
-                <h2>Гра завершена!</h2>
+    return (
+        <Modal isOpen={isOpen} onClose={onGoHome}>
+            <div className={styles.content}>
+                <h2>Гру закінчено!</h2>
                 <p className={styles.winner}>{message}</p>
                 <div className={styles.buttons}>
-                    <Button onClick={onPlayAgain}>Грати цей тур заново</Button>
-                    <Button onClick={onGoHome}>Вийти в меню</Button>
+                    <Button onClick={onPlayAgain}>
+                        Грати знову
+                    </Button>
+                    <Button onClick={onGoHome}>
+                        Вийти в меню
+                    </Button>
                 </div>
             </div>
-        </div>
+        </Modal>
     );
-
-    return ReactDOM.createPortal(modalContent, modalRoot);
 };
 
 export default GameEndModal;
