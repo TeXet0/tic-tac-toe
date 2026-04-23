@@ -1,16 +1,28 @@
-# React + Vite
+# React Tic-Tac-Toe Game 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Це інтерактивна гра "Хрестики-нулики", створена за допомогою React.js. Проєкт включає систему роутингу, глобальний стейт, налаштування імен гравців та збереження даних.
 
-Currently, two official plugins are available:
+##  Базові команди
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Щоб запустити проєкт локально:
 
-## React Compiler
+1. Клонуйте репозиторій: `git clone <посилання>`
+2. Встановіть залежності: `npm install`
+3. Запустіть сервер розробки: `npm run dev`
+4. Для перегляду Storybook: `npm run storybook`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+##  Конфігурації та Стек
+- **Framework:** React 18 (Vite)
+- **Styling:** SCSS Modules
+- **Forms:** React Hook Form
+- **Routing:** React Router v6
+- **Components testing:** Storybook
 
-## Expanding the ESLint configuration
+## Ліцензія та Політика конфіденційності
+- Цей проєкт розповсюджується під ліцензією [MIT](LICENSE).
+- Звіт щодо ліцензій залежностей можна знайти у файлі [license-report.txt](license-report.txt).
+- Правила використання та GDPR: [Privacy Policy](PRIVACY_POLICY.md).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+##  Авторство
+Створено як лабораторний проєкт.
+Автор: [Круковський Данило ІПЗ-23-3]
